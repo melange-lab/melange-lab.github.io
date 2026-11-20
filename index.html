@@ -2990,7 +2990,7 @@ const betCapD=noRg=>Math.round(1e6*(noRg?1:(regime().cap||1))*Math.pow(1.22,lvlO
 const wealthCap=b=>.1*Math.min(b,1e11)+.05*Math.min(Math.max(b-1e11,0),9e11)+.01*Math.min(Math.max(b-1e12,0),999e12)+.002*Math.max(b-1e15,0);
 const LIQ=1e16;
 const stakeCap=(lv=levSel)=>Math.min(LIQ,Math.max(lv>1?betCapD():betCap(),Math.round(wealthCap(balance)*(regime().cap||1)/1e4)*1e4));
-const maxStake=ai=>ai?Math.min(LIQ,balance):stakeCap();
+const maxStake=ai=>ai?balance:stakeCap();
 const itemCost=(k,bet)=>{const c=ITEMS[k].cost;return (bet*c+Math.min(Math.max(balance,bet)*c*.05,bet*c*2))*(1-.04*skl('discount'));};
 const wealthRisk=b=>b<1e9?0:Math.min(.3,.035*Math.log10(b/1e9));
 const taxRate=b=>b<1e10?0:Math.min(.65,.05+.1*Math.log10(b/1e10));
@@ -3712,7 +3712,7 @@ if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]adsense\b/.test(lo
 const CG={on:false,S:null,last:0,noAds:0,done:0},onCG=/crazygames/.test(location.hostname)||/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]cg\b/.test(location.search);
 const ON_PC=location.protocol==='app:';
 if(ON_PC){CFG.adClient='';CFG.donateUrl='';CFG.iap=false;}
-const BUILD='v3.2.3 · b261120d · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
+const BUILD='v3.2.4 · b261120f · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
 if(onCG){const sc=document.createElement('script');sc.src='https://sdk.crazygames.com/crazygames-sdk-v3.js';
   sc.onload=async()=>{try{const S=window.CrazyGames.SDK;await S.init();if(S.environment!=='disabled'){CG.S=S;CG.on=true;cgLoad();try{const ms=v=>{v=v&&typeof v==='object'?v:S.game.settings;cgMute=!!(v&&v.muteAudio);document.body.classList.toggle('noChat',!!(v&&v.disableChat));if(touched||cgMute)bgm.sync();};ms();S.game.addSettingsChangeListener(ms);}catch(e){}if(state==='holding'||state==='ghost')cgPlay(true);}}catch(e){}CG.done=1;};sc.onerror=()=>{CG.done=1;};document.head.appendChild(sc);}
 let cgG=false;
