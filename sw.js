@@ -2,7 +2,7 @@
 // v65 (v3.1.3): 첫 방문 뒤·업데이트 직후 오프라인에서도 글꼴·로고·아이콘이 보이게
 //  - 설치 때 첫 화면 그림·글꼴(FIRST)도 같이 받음 (하나 못 받아도 설치는 계속)
 //  - 페이지가 이미 받은 같은 사이트 파일 목록을 보내면(warm) 캐시에 없는 것만 받아 둠 (서비스워커가 붙기 전에 받은 파일 · 새 버전으로 캐시를 바꾼 직후)
-const CACHE = 'sanghanga-v67';
+const CACHE = 'sanghanga-v68';
 const CORE = ['./', 'index.html', 'en/', 'en/index.html', 'manifest.webmanifest', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'];
 const EN = new URL('en/', self.location).pathname;
 const FIRST = ['fonts/fonts.css', 'fonts/inter.latin.woff2', 'fonts/noto.latin.woff2', 'fonts/gasoek.latin.woff2',
