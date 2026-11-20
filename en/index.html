@@ -3711,7 +3711,7 @@ if(/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]adsense\b/.test(lo
 const CG={on:false,S:null,last:0,noAds:0,done:0},onCG=/crazygames/.test(location.hostname)||/^(localhost|127\.0\.0\.1)$/.test(location.hostname)&&/[?&]cg\b/.test(location.search);
 const ON_PC=location.protocol==='app:';
 if(ON_PC){CFG.adClient='';CFG.donateUrl='';CFG.iap=false;}
-const BUILD='v3.2.2 · b261120c · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
+const BUILD='v3.2.3 · b261120d · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
 if(onCG){const sc=document.createElement('script');sc.src='https://sdk.crazygames.com/crazygames-sdk-v3.js';
   sc.onload=async()=>{try{const S=window.CrazyGames.SDK;await S.init();if(S.environment!=='disabled'){CG.S=S;CG.on=true;cgLoad();try{const ms=v=>{v=v&&typeof v==='object'?v:S.game.settings;cgMute=!!(v&&v.muteAudio);document.body.classList.toggle('noChat',!!(v&&v.disableChat));if(touched||cgMute)bgm.sync();};ms();S.game.addSettingsChangeListener(ms);}catch(e){}if(state==='holding'||state==='ghost')cgPlay(true);}}catch(e){}CG.done=1;};sc.onerror=()=>{CG.done=1;};document.head.appendChild(sc);}
 let cgG=false;
@@ -5521,16 +5521,16 @@ function bindPage(name){
    for(let i=0;i<localStorage.length;i++){const k=localStorage.key(i);if(k.startsWith('shg_')&&!k.startsWith('shg_prem'))d[k]=localStorage.getItem(k);}
     delete d.shg_errlog;const code='SHG1:'+btoa(unescape(encodeURIComponent(JSON.stringify(d))));(navigator.clipboard?navigator.clipboard.writeText(code):Promise.reject()).then(()=>toast('💾 Backup code copied. Paste it in Notes to keep it safe'),()=>ask('Copy the code below (long-press, or Ctrl/Cmd+C)',0,0,code));};
   const bi=$('bkIn');if(bi)bi.onclick=()=>ask('Paste your backup code (current progress will be overwritten)','OK',v=>{const code=(v||'').trim();if(!code)return;
-    try{if(!code.startsWith('SHG1:'))throw 0;const d=JSON.parse(decodeURIComponent(escape(atob(code.slice(5)))));if(!d||!d.shg_bal)throw 0;
+    try{const i0=code.indexOf('SHG1:');if(i0<0)throw 0;let d;try{d=JSON.parse(decodeURIComponent(escape(atob(code.slice(i0+5).replace(/[^A-Za-z0-9+/=]/g,'')))));}catch(_){throw 1;}if(!d||typeof d!=='object'||!d.shg_bal)throw 0;
       const A=['shg_ach','shg_col'],O=['shg_road','shg_lad','shg_econ','shg_inv','shg_armed','shg_gear','shg_gearMax','shg_inv2','shg_sk','shg_achc','shg_decor','shg_adc','shg_set','shg_stats','shg_league','shg_season'],N=['shg_gearV','shg_bal','shg_xp','shg_debt','shg_rdebt','shg_credit','shg_pres','shg_best','shg_streak','shg_pct','shg_ipct'],isO=v=>!!v&&typeof v==='object'&&!Array.isArray(v),K=k=>/^shg_\w+$/.test(k),F2=(()=>{const t=new Date(Date.now()+2*864e5);return t.getFullYear()*1e4+(t.getMonth()+1)*100+t.getDate();})();
-      for(const k in d){if(!K(k)||k.startsWith('shg_prem'))continue;if(typeof d[k]!=='string')throw 0;const v=JSON.parse(d[k]);
-        if(A.includes(k)&&!Array.isArray(v)||O.includes(k)&&!isO(v)||N.includes(k)&&v!==null&&(typeof v==='object'||!isFinite(v))||k==='shg_season'&&!Array.isArray(v.got)||(k==='shg_daily'||k==='shg_weekly')&&v!==null&&!(isO(v)&&Array.isArray(v.ids))||k==='shg_profile'&&v!==null&&!Object.prototype.hasOwnProperty.call(TYPES,v)||k==='shg_league'&&v.me!=null&&!isO(v.me)||k==='shg_pet'&&v!==null&&!petFix(v)||/^shg_(spin|adSpin|adRevive|chalDay|chalMax)$/.test(k)&&(typeof v==='number'?v:dayOrd(v))>F2)throw 0;} 
+      const skip=[];for(const k in d){if(!K(k)||k.startsWith('shg_prem'))continue;let bad=typeof d[k]!=='string';if(!bad)try{const v=JSON.parse(d[k]);bad=!!(
+        A.includes(k)&&!Array.isArray(v)||O.includes(k)&&!isO(v)||N.includes(k)&&v!==null&&(typeof v==='object'||!isFinite(v))||k==='shg_season'&&!Array.isArray(v.got)||(k==='shg_daily'||k==='shg_weekly')&&v!==null&&!(isO(v)&&Array.isArray(v.ids))||k==='shg_profile'&&v!==null&&!Object.prototype.hasOwnProperty.call(TYPES,v)||k==='shg_league'&&v.me!=null&&!isO(v.me)||k==='shg_pet'&&v!==null&&!petFix(v)||/^shg_(spin|adSpin|adRevive|chalDay|chalMax)$/.test(k)&&(typeof v==='number'?v:dayOrd(v))>F2);}catch(_){bad=true;}if(bad){skip.push(k);delete d[k];}}if(skip.includes('shg_bal'))throw 0;  
       const sp=x=>{try{return typeof x==='string'?JSON.parse(x):null}catch(e){return null}},pm=premRead(),eb=premEqFix(sp(d.shg_premEq)),eq=eb.th||eb.ttl?JSON.stringify(eb):localStorage.getItem('shg_premEq');
       const ks=()=>Object.keys(localStorage).filter(k=>k.startsWith('shg_')),bk={};ks().forEach(k=>bk[k]=localStorage.getItem(k));
       store.off=1;try{ks().forEach(k=>localStorage.removeItem(k));for(const k in d)if(K(k)&&!k.startsWith('shg_prem'))localStorage.setItem(k,d[k]);if(pm.length)localStorage.setItem('shg_prem',JSON.stringify(pm));if(eq!==null)localStorage.setItem('shg_premEq',eq);}
       catch(e2){try{ks().forEach(k=>localStorage.removeItem(k));for(const k in bk)localStorage.setItem(k,bk[k]);}catch(_){}store.off=0;toast('Not enough storage space to load the backup · your current progress is unchanged');return;}
-      toast('📥 Loading…');setTimeout(()=>location.reload(),500);}
-    catch(e){toast('Invalid backup code');}},'');
+      toast(skip.length?'📥 Loading… · '+skip.length+' part(s) reset to default':'📥 Loading…');setTimeout(()=>location.reload(),skip.length?1800:500);}
+    catch(e){toast(e===1?'The backup code was cut off · copy it again from SHG1: to the very end':'Invalid backup code');}},'');
   {const q=$('pcQuit');if(q)q.onclick=pcQuit;}
   const w=$('wipe');if(w)resetArm=0;
   if(w)w.onclick=()=>{const dt=Date.now()-resetArm;if(dt<700)return;
