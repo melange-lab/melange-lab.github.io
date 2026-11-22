@@ -321,7 +321,7 @@ input[type=range],.check input{accent-color:var(--blue)}
         <div class="srow"><span class="lab">배경</span><div class="hs"><div class="swatches" id="swatches" role="group" aria-label="배경색"></div><i class="sep"></i><div class="swatches" id="recents" role="group" aria-label="직접 고른 색"><input type="color" id="bgColor" value="#ffffff" aria-label="배경색 직접 고르기"></div></div></div>
         <label class="check"><input type="checkbox" id="outer" checked> 바깥 테두리에도 간격 넣기</label>
       </div>
-      <p class="ver">칸칸 v0.9.0 · 사진은 이 기기 안에서만 처리됩니다</p>
+      <p class="ver">칸칸 v0.9.1 · 사진은 이 기기 안에서만 처리됩니다</p>
     </div>
   </div>
 </div>
@@ -814,6 +814,7 @@ ov.addEventListener('click',e=>{
     st.sel=c;place();tools();showTab('cell');pick(c);return;
   }
   if(moved){moved=false;return}
+  if(!c.img&&!swapping){st.sel=c;place();tools();showTab('cell');pick(c);return}
   tapCell(c);
 });
 ov.addEventListener('keydown',e=>{
