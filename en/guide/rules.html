@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Rules in Detail — Peakopia Guide</title>
+<meta name="description" content="Peakopia rules with numbers: volume signal timing, leverage levels and liquidation lines, Max Buy, loan interest and credit grades, the 8 market moods, boss fights and the hot tip range.">
+<link rel="canonical" href="https://melange-lab.github.io/en/guide/rules.html">
+<link rel="alternate" hreflang="ko" href="https://melange-lab.github.io/guide/rules.html">
+<link rel="alternate" hreflang="en" href="https://melange-lab.github.io/en/guide/rules.html">
+<link rel="alternate" hreflang="x-default" href="https://melange-lab.github.io/guide/rules.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Peakopia">
+<meta property="og:title" content="Rules in Detail — Peakopia Guide">
+<meta property="og:description" content="Peakopia rules with numbers: volume signal timing, leverage levels and liquidation lines, Max Buy, loan interest and credit grades, the 8 market moods, boss fights and the hot tip range.">
+<meta property="og:url" content="https://melange-lab.github.io/en/guide/rules.html">
+<meta property="og:image" content="https://melange-lab.github.io/og.png">
+<meta name="google-adsense-account" content="ca-pub-2213068202184499">
+<link rel="icon" href="../../icon-192.png">
+<style>:root{color-scheme:light dark;--bg:#ffffff;--fg:#1b1d21;--mu:#5d6472;--line:#e2e5ea;--card:#f4f6f9;--link:#0a62c2}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;overflow-wrap:anywhere}
+main{max-width:680px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 16px;font-size:15px}
+nav.top a{display:inline-block;padding:8px 0}
+h1{font-size:24px;line-height:1.35;margin:16px 0 4px}
+h2{font-size:18px;line-height:1.4;margin:32px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+ul,ol{margin:8px 0;padding-left:22px}
+li{margin:4px 0}
+a{color:var(--link)}
+.meta{color:var(--mu);font-size:14px;margin:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:20px 0}
+.box ul{padding-left:18px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:600}
+table.wide{min-width:560px}
+td.n,th.n{white-space:nowrap}
+dl{margin:8px 0}
+dt{font-weight:700;margin-top:18px}
+dd{margin:4px 0 0}
+.toc li{margin:10px 0}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:15px}
+footer ul{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:2px 16px}
+footer li{margin:0}
+footer a{display:inline-block;padding:6px 0}</style>
+<style media="(prefers-color-scheme: dark)">:root{--bg:#0e1014;--fg:#e8ebf0;--mu:#9ba3b1;--line:#2a2e37;--card:#171b22;--link:#74b6ff}</style>
+</head>
+<body>
+<main>
+<nav class="top" aria-label="Site menu"><a href="../">← Play the game</a><a href="./">Guide contents</a><a href="../../guide/rules.html" lang="ko" hreflang="ko">한국어</a></nav>
+
+<h1>Rules in detail</h1>
+<p class="meta">Peakopia guide · as of v3.6.0</p>
+<p>This page collects the game’s numbers and rules in one place. Leverage, Max Buy and loans can make gains bigger, but they make losses bigger too. Both sides are listed below. If you are new, start with <a href="play.html">Getting started</a>.</p>
+
+<h2>Crash signal timing</h2>
+<p>In a normal round a volume bar always shoots up right before the crash. The time from the signal to the crash works like this.</p>
+<ul>
+<li>The base time is 0.5 seconds.</li>
+<li>Each round, the real time is 0.85 to 1.15 times the base time. That is why counting seconds does not work.</li>
+<li>Nothing can push it past 1.2 seconds.</li>
+</ul>
+<h3>The richer you are, the shorter it gets</h3>
+<div class="tw"><table>
+<tr><th>Net worth</th><th>Base signal time</th></tr>
+<tr><td>Up to $10T</td><td>About 0.5s</td></tr>
+<tr><td>$100Qa</td><td>About 0.4s</td></tr>
+<tr><td>$1Sx and above</td><td>About 0.3s</td></tr>
+</table></div>
+<p>Between those points it shrinks gradually.</p>
+<h3>What makes the signal longer</h3>
+<ul>
+<li>🦊 Savvy Fox type: +0.12s</li>
+<li>🦊 Fox partner: Baby +0.03s, Adult +0.06s, Legend +0.1s</li>
+<li>👂 Informant skill: +0.02s per level (up to level 12)</li>
+<li>🎭 Pump Stocks: +0.12s</li>
+</ul>
+<h3>Bad news with the signal (v3.6.0)</h3>
+<p>In normal rounds, one plain 📉 bad-news line appears together with the volume signal. Lines such as ‘Profit-taking sales are piling up’, ‘Talk of a short-term overheat’ or ‘Short interest is rising’. It looks just like fake bad news, but this line does not lower the price. So when bad news shows while the price is still rising and the volume shoots up, it is real. When the price drops at once with the news, it is a shakeout. The tutorial, boss fights and the Daily Challenge do not have this line.</p>
+<h3>What brings the crash sooner or later</h3>
+<ul>
+<li><b>Early protection</b> · In your first 5 real rounds, no crash comes before +20%. Over the next 5 rounds this protection fades out.</li>
+<li><b>Dip buy · FOMO buy</b> · If the chart is 4% below the base price before you buy, the crash comes a bit later; 5% above, a bit sooner.</li>
+<li><b>Wealth Risk</b> · From $1M in cash, crashes come a bit sooner: about 10% at $1B, up to 30%.</li>
+<li><b>High-Level Difficulty</b> · From Lv.20 to Lv.64, crashes come a little sooner each level (up to 35%). In return, the level Trade limit grows by 22% every level.</li>
+<li><b>💎 Moonshot Instinct skill</b> · Crash point +1.5% per level.</li>
+</ul>
+
+<h2>Leverage ⚡</h2>
+<p>Leverage trades at a multiple of the amount you put in. Gains and losses both grow by that multiple. Each multiple opens as your rank rises. The multiple you pick stays set after a round ends, so check it before you start a round.</p>
+<div class="tw"><table class="wide">
+<tr><th>Multiple</th><th>Opens at rank</th><th>Liquidation</th><th>Buy fee</th><th>Rise size</th><th>Leverage shakeout</th></tr>
+<tr><td>1x</td><td>From the start</td><td>None</td><td>0.3%</td><td>×1</td><td>None</td></tr>
+<tr><td>2x</td><td>Rookie</td><td>−43%</td><td>0.5%</td><td>about ×0.71</td><td>16%</td></tr>
+<tr><td>3x</td><td>Swing Pro</td><td>−28%</td><td>0.7%</td><td>about ×0.58</td><td>24%</td></tr>
+<tr><td>5x</td><td>Full-time Trader</td><td>−17%</td><td>1.1%</td><td>about ×0.45</td><td>40%</td></tr>
+<tr><td>10x</td><td>Big Shot</td><td>−9%</td><td>2.1%</td><td>about ×0.32</td><td>75%</td></tr>
+<tr><td>20x</td><td>Whale</td><td>−4%</td><td>4.1%</td><td>about ×0.22</td><td>75%</td></tr>
+</table></div>
+<ul>
+<li><b>Liquidation line</b> · If the price falls this far below your buy price, you are liquidated. The exact line is buy price × (1 − 0.85 ÷ multiple); the table shows it rounded, as the game does. The chart shows it as the 💀 Liquidation line.</li>
+<li><b>Liquidation</b> · Touch the line and you lose your whole trade amount and the round ends. Stop-Loss Shield does not help against liquidation.</li>
+<li><b>When caught</b> · Your loss is the stock’s crash share × multiple × 0.6. For example, Hype Stocks (−70%) at 5x lose 210% of the trade amount when caught. You can lose more than you put in, but never more than your cash.</li>
+<li><b>Rise size</b> · Higher multiples bring faster crashes. The rise before the crash shrinks by the square root of the multiple.</li>
+<li><b>Leverage shakeout</b> · In a leveraged round, one extra shakeout drop may come before the signal. The table shows that chance. At 10x or more, such a wiggle alone can reach the liquidation line.</li>
+<li><b>Fees</b> · 0.3% of the trade amount, plus 0.2% for every step up in multiple. With 💳 Broker VIP gear you pay no fees and no leverage interest.</li>
+<li><b>Investments</b> · Every round at 10x or more halves Patience on all your investment products.</li>
+<li>With the 🐉 Dragon partner equipped, take-profit gains on leveraged rounds grow by +3/6/10%.</li>
+</ul>
+<p>You level up just the same at 1x without leverage.</p>
+
+<h2>Max Buy 💯</h2>
+<p>Max Buy ignores % of limit and buys with all your cash. It opens at the Day Trader rank.</p>
+<ul>
+<li>There is no cap. Even the Liquidity Cap for normal buys ($10T per round) does not apply.</li>
+<li>It is on for one round only. It is off again next round.</li>
+<li>If you get caught, all of your cash falls with it. Going broke while in debt leads to bankruptcy and seizure.</li>
+<li>A 🔮 Crystal Ball is not used on a Max Buy round; it waits for your next normal round.</li>
+<li>Every Max Buy round halves Patience on all your investment products.</li>
+<li>With the 🦁 Lion partner equipped, take-profit gains on Max Buy rounds grow by +3/6/10%.</li>
+</ul>
+
+<h2>Loans and credit grades 💳</h2>
+<p>You borrow and repay at Shop › Bank. Loans open at Lv.10. Interest is very high, so debt grows fast. Think about how you will repay before you borrow.</p>
+<ul>
+<li>Credit grades run from AAA (best) to D (worst). You start at BB.</li>
+<li>Every loan drops your credit by 4 grades. At D you cannot borrow more.</li>
+<li>Paying off all your debt raises your credit by 1 grade.</li>
+<li>Interest is added to your debt every round. The worse your credit, the higher it is.</li>
+<li>One loan is your level Trade limit times a multiple set by your grade (at least $1,000).</li>
+<li>Your debt limit is 25 times your level Trade limit (at least $30,000). If a new loan plus next round’s interest would go over it, you cannot borrow.</li>
+</ul>
+<div class="tw"><table>
+<tr><th>Credit grade</th><th>Interest per round</th><th>One loan (× level Trade limit)</th></tr>
+<tr><td>AAA</td><td>40%</td><td>5×</td></tr>
+<tr><td>AA</td><td>42%</td><td>4×</td></tr>
+<tr><td>A</td><td>44%</td><td>3.5×</td></tr>
+<tr><td>BBB</td><td>47%</td><td>3×</td></tr>
+<tr><td>BB</td><td>49%</td><td>2×</td></tr>
+<tr><td>B</td><td>51%</td><td>2×</td></tr>
+<tr><td>CCC</td><td>53%</td><td>1.6×</td></tr>
+<tr><td>CC</td><td>56%</td><td>1.3×</td></tr>
+<tr><td>C</td><td>58%</td><td>1×</td></tr>
+<tr><td>D</td><td>60%</td><td>Cannot borrow</td></tr>
+</table></div>
+<ul>
+<li><b>Auto Repay</b> · 30% of every take-profit gain pays down your debt automatically.</li>
+<li><b>Over the limit</b> · Debt over the limit is repaid from your cash automatically. If you cannot cover it, you go into Default and your gear, consumables and investments are seized.</li>
+<li><b>Declare bankruptcy</b> · If you go broke while in debt, you declare bankruptcy. The debt is wiped, but your gear, consumables and investments are seized and your credit drops to D. You see the exact list and confirm before anything is seized. Level, skills, achievements, collection, partners and decor stay.</li>
+<li><b>Restart Fund</b> · The money you get from Start fresh or bankruptcy. It is interest-free debt, so it does not count toward the debt limit and is never seized. 30% of take-profit gains repay it after any debt, and you can also repay it at the Bank. It counts against your net worth.</li>
+<li><b>While in debt</b> · You cannot upgrade gear or buy asset ladder steps. Investments up to the size of your debt earn no interest and take no losses.</li>
+<li>With the 🐻 Bear partner equipped, loan interest drops by −10/20/30%.</li>
+</ul>
+
+<h2>The 8 market moods 🌡️</h2>
+<p>The market mood is the overall feel of the market. It changes every 5 rounds, and the chip above the chart shows its name and the rounds left. Tap the chip to see what changes.</p>
+<div class="tw"><table>
+<tr><th>Market mood</th><th>Effect</th></tr>
+<tr><td>📊 Normal Market</td><td>Business as usual</td></tr>
+<tr><td>🐂 Bull Run</td><td>Rises 25% faster</td></tr>
+<tr><td>🐻 Bear Market</td><td>Crashes 15% sooner · Profit +30%</td></tr>
+<tr><td>🌪️ Volatility Storm</td><td>2× swings and news</td></tr>
+<tr><td>💤 Sideways Market</td><td>Slow, crashes come later</td></tr>
+<tr><td>🔥 Hype Season</td><td>Hype/Meme/Biotech profit +50%</td></tr>
+<tr><td>💸 Liquidity Party</td><td>2× trade limit</td></tr>
+<tr><td>🦢 Black Swan Alert</td><td>Crashes 25% sooner · Profit +60%</td></tr>
+</table></div>
+<ul>
+<li>The first 5 rounds are always Normal Market.</li>
+<li>In the first cycle (up to about round 45), milder moods take the place of Bear Market, Volatility Storm and Black Swan Alert. From the second cycle on, all 8 can appear.</li>
+<li>The same mood does not come twice in a row, even when a new cycle starts.</li>
+<li>Boss fights and the Daily Challenge always use Normal Market rules, whatever the mood.</li>
+</ul>
+
+<h2>Boss fights 👹</h2>
+<p>A boss appears every 10 rounds: round 10, 20, 30 and so on. Bosses do not appear during the tutorial or the Daily Challenge.</p>
+<ul>
+<li>No money is used. You play at 1x with no items.</li>
+<li>The boss fakes several attacks (bluffs) and makes one real attack.</li>
+<li>Each attack fills a meter. The attack lands when the meter is full.</li>
+<li>Each boss has one fixed rule that tells the real attack from the bluffs. The first time you meet a boss, its rule is shown before you enter.</li>
+<li>Tap ⚔️ while the real attack’s meter is filling to defeat it. Too early and it gets away (🏃); too late and the boss hits you (💥). Either way you lose no money.</li>
+<li>Strike in the first half of the real meter for ★, past the halfway point for ★★, and in the gold zone (the last 25%) for ★★★.</li>
+</ul>
+<div class="tw"><table>
+<tr><th>Boss</th><th>The rule that shows the real attack</th></tr>
+<tr><td>👹 Short Sellers</td><td>The attack that uses the last 💣 is real</td></tr>
+<tr><td>🌑 Black Monday</td><td>It drops at ⏱ 0:00. Dips before that are bluffs</td></tr>
+<tr><td>🏦 Rate Hike</td><td>It crashes on the beat after the 🔺🔺🔺 hike</td></tr>
+<tr><td>🎭 Pump Kingpin</td><td>When a pump fails to top the last peak, the dump starts</td></tr>
+<tr><td>⛔ Circuit Breaker</td><td>When the price touches the red line, strike before the halt. Hold until it touches</td></tr>
+<tr><td>🦢 Black Swan</td><td>Loud warnings are fake. Silence is real</td></tr>
+<tr><td>🐻 Giant Bear</td><td>Quick swipes are fake. A long wind-up is real</td></tr>
+<tr><td>🌪️ Financial Crisis</td><td>It copies the other boss it shows at the start</td></tr>
+</table></div>
+<h3>Boss Book and rewards</h3>
+<ul>
+<li>Each of the 8 bosses has ranks Ⅰ to Ⅳ, so the Boss Book has 32 entries. Higher ranks bring more bluffs and a shorter meter.</li>
+<li><b>Bounty</b> · Defeating a new Boss Book entry pays 35% of your level Trade limit (1x). A rematch against a boss you already beat pays 20%. The 🐧 Penguin partner adds +10/20/30% to bounties.</li>
+<li><b>XP</b> · A new entry gives 40 XP for ★, 50 for ★★ and 60 for ★★★. A rematch gives 10–15 XP. You still get a little if you miss.</li>
+<li><b>SP</b> · You get 1 SP for the first defeat of a new rank Ⅰ–Ⅲ entry, 1 for your first ★★★, and 1 for every 5 rematch wins.</li>
+<li>Defeating a boss adds 3 to your partner’s bond.</li>
+</ul>
+
+<h2>Hot Tip 🔍 and other items</h2>
+<p>Turn items on with the 🧰 Items button on the Trade tab. An item works only in the round you turn it on, and it is off again next round. The cost each round scales with your trade amount and can rise up to 3 times when you hold a lot of cash. The 🏷️ Penny Pincher skill cuts item cost by 4% per level.</p>
+<div class="tw"><table class="wide">
+<tr><th>Item</th><th>Effect</th><th>Cost per round</th><th>Opens at rank</th></tr>
+<tr><td>🛡️ Stop-Loss Shield</td><td>Crash loss −75% (you still lose at least 10%). No effect on liquidation</td><td>8% of the trade amount</td><td>Rookie</td></tr>
+<tr><td>🔍 Hot Tip</td><td>Shows the crash zone as a price range (always accurate)</td><td>5% of the trade amount</td><td>Day Trader</td></tr>
+<tr><td>⏱️ Slow-Mo</td><td>Chart speed 0.6×</td><td>6% of the trade amount</td><td>Swing Pro</td></tr>
+</table></div>
+<h3>The hot tip range</h3>
+<ul>
+<li>With a Hot Tip on, two purple dashed lines appear on the chart. The crash comes at a price between them.</li>
+<li>The range always contains the real crash price. A tip is never wrong.</li>
+<li>By default the range is about 50% of the crash price wide. The 📡 Tip Detector skill narrows it by 5% per level (up to level 10), and the 🐱 Cat partner by 10/20/30%.</li>
+<li>A 🔮 Crystal Ball is a consumable you buy in the Shop. It shows next round’s crash point as one near-exact line. In a round where you use it, you do not buy a Hot Tip as well.</li>
+</ul>
+
+<h2>Tax and limits</h2>
+<ul>
+<li><b>Trade limit</b> · The most you can use in one round. It is the higher of your level limit or a share of your cash (10% up to $100M → 5% to $1B → 1% to $1T → 0.2% above).</li>
+<li><b>Liquidity Cap</b> · Normal buys cap at $10T per round. Max Buy is exempt.</li>
+<li><b>Rich Tax</b> · Once your cash reaches $10M, profits are taxed: $10M 5% → $1B 25% → $100B 45% → max 65%.</li>
+</ul>
+
+<footer>
+<ul><li><a href="./">Guide home</a></li><li><a href="play.html">Getting started</a></li><li><a href="rules.html">Rules in detail</a></li><li><a href="grow.html">Growth</a></li><li><a href="words.html">Glossary</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../about.html">About</a></li></ul>
+<p class="meta">All money in the game is virtual. Nothing here is investment advice.</p>
+<p class="meta">Peakopia · Operated by melange lab · as of v3.6.0</p>
+</footer>
+</main>
+</body>
+</html>

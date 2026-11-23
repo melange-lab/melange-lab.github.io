@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Getting Started — Peakopia Guide</title>
+<meta name="description" content="A first-time guide to Peakopia: how a round works, take profit vs caught, how to read the volume signal before a crash, how to spot shakeouts, the tutorial and your first 10 rounds.">
+<link rel="canonical" href="https://melange-lab.github.io/en/guide/play.html">
+<link rel="alternate" hreflang="ko" href="https://melange-lab.github.io/guide/play.html">
+<link rel="alternate" hreflang="en" href="https://melange-lab.github.io/en/guide/play.html">
+<link rel="alternate" hreflang="x-default" href="https://melange-lab.github.io/guide/play.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Peakopia">
+<meta property="og:title" content="Getting Started — Peakopia Guide">
+<meta property="og:description" content="A first-time guide to Peakopia: how a round works, take profit vs caught, how to read the volume signal before a crash, how to spot shakeouts, the tutorial and your first 10 rounds.">
+<meta property="og:url" content="https://melange-lab.github.io/en/guide/play.html">
+<meta property="og:image" content="https://melange-lab.github.io/og.png">
+<meta name="google-adsense-account" content="ca-pub-2213068202184499">
+<link rel="icon" href="../../icon-192.png">
+<style>:root{color-scheme:light dark;--bg:#ffffff;--fg:#1b1d21;--mu:#5d6472;--line:#e2e5ea;--card:#f4f6f9;--link:#0a62c2}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;overflow-wrap:anywhere}
+main{max-width:680px;margin:0 auto;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(40px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
+nav.top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:0 16px;font-size:15px}
+nav.top a{display:inline-block;padding:8px 0}
+h1{font-size:24px;line-height:1.35;margin:16px 0 4px}
+h2{font-size:18px;line-height:1.4;margin:32px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
+h3{font-size:16px;margin:20px 0 6px}
+p{margin:8px 0}
+ul,ol{margin:8px 0;padding-left:22px}
+li{margin:4px 0}
+a{color:var(--link)}
+.meta{color:var(--mu);font-size:14px;margin:0}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:20px 0}
+.box ul{padding-left:18px}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.55}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:var(--card);font-weight:600}
+table.wide{min-width:560px}
+td.n,th.n{white-space:nowrap}
+dl{margin:8px 0}
+dt{font-weight:700;margin-top:18px}
+dd{margin:4px 0 0}
+.toc li{margin:10px 0}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:15px}
+footer ul{list-style:none;padding:0;margin:0 0 12px;display:flex;flex-wrap:wrap;gap:2px 16px}
+footer li{margin:0}
+footer a{display:inline-block;padding:6px 0}</style>
+<style media="(prefers-color-scheme: dark)">:root{--bg:#0e1014;--fg:#e8ebf0;--mu:#9ba3b1;--line:#2a2e37;--card:#171b22;--link:#74b6ff}</style>
+</head>
+<body>
+<main>
+<nav class="top" aria-label="Site menu"><a href="../">← Play the game</a><a href="./">Guide contents</a><a href="../../guide/play.html" lang="ko" hreflang="ko">한국어</a></nav>
+
+<h1>Getting started</h1>
+<p class="meta">Peakopia guide · as of v3.6.0</p>
+<p>This page is for new players. It goes step by step from how a round works to reading the crash signal and what to try in your first 10 rounds. Exact numbers are in <a href="rules.html">Rules in detail</a>.</p>
+
+<h2>How a round works</h2>
+<ol>
+<li><b>Pick a stock</b> · Choose one from the list on the Trade tab. ‘Crash −N%’ under the name is how much you lose if a crash catches you.</li>
+<li><b>Pick % of limit</b> · Choose 10%, 25%, 50% or 100%. It is the share of your per-round Trade limit you use this round. If your cash is below the limit, it uses your cash instead.</li>
+<li><b>Buy</b> · Tap the big button to buy. A small fee comes off when you buy: 0.3% of the amount at 1x.</li>
+<li><b>Watch</b> · The chart moves. Keep an eye on the news bar and the volume bars under the chart.</li>
+<li><b>Sell</b> · Tap the button again to sell. Above your buy price is a take profit; below it is a stop loss.</li>
+<li><b>Check the result</b> · The result card shows your profit, return and peak accuracy. The chart keeps going after you sell until the crash comes. See when it crashed and use that next round.</li>
+</ol>
+<p>If the crash comes before you sell, you get the ‘Caught!’ card. Your loss is the fixed share for that stock type.</p>
+<p>After you sell, if the volume signal has not shown yet, you can go back in once with the same amount. This is a re-entry. You have to sell that part again, and once the signal shows you can no longer re-enter.</p>
+
+<h2>Take profit vs caught</h2>
+<p>Sell while it rises and you keep that price as profit. That is a take profit. If the crash comes first, you are stuck at the low price. That is getting caught. Every round is about one choice: when to sell.</p>
+<p>Take profits in a row earn a bonus. From a 3-win streak, a streak bonus is added to your profit, and at 5 in a row you hit Fever, which doubles the bonus rate. The base bonus rate is at most 25%; the 🔥 Win Streak Instinct skill and the 🐂 Bull partner raise it further. Selling below your buy price or getting caught ends the streak.</p>
+<p>Each stock type has its own loss when caught and its own rise size. Types that rise more also tend to lose more when caught.</p>
+<div class="tw"><table>
+<tr><th>Type</th><th>Crash</th><th>Rise size</th><th>Opens at rank</th></tr>
+<tr><td>🏛️ Blue Chip</td><td>−45%</td><td>×0.6</td><td>From the start</td></tr>
+<tr><td>🔥 Hype Stocks</td><td>−70%</td><td>×1</td><td>From the start</td></tr>
+<tr><td>🐸 Meme Stocks</td><td>−92%</td><td>×1.8</td><td>From the start</td></tr>
+<tr><td>🧬 Biotech</td><td>−80%</td><td>×1.4</td><td>Rookie</td></tr>
+<tr><td>🟡 Penny Stocks</td><td>−75%</td><td>×1.2</td><td>Day Trader</td></tr>
+<tr><td>🎉 IPOs</td><td>−85%</td><td>×2</td><td>Pro Trader</td></tr>
+<tr><td>🌐 Global Giants</td><td>−60%</td><td>×1.1</td><td>Chart Master</td></tr>
+<tr><td>🎭 Pump Stocks</td><td>−92%</td><td>×1.6</td><td>Fund Manager</td></tr>
+</table></div>
+<p>The yellow dashed line on the chart sits 30% above the base price. Meme Stocks and Global Giants have no daily cap, so for them it is only a +30% guide line.</p>
+
+<h2>The crash signal: a volume bar shoots up</h2>
+<p>The bars under the chart show how much was traded at that moment (volume). In a normal round, right before every crash, one volume bar suddenly shoots up. That is the volume signal. The signal bar has the same color as the other bars and is about 2 to 3 times taller than usual.</p>
+<ul>
+<li>The time from the signal to the crash is short. It is about 0.5 seconds by default and varies a little each round, between 0.85 and 1.15 times that. It is never longer than 1.2 seconds.</li>
+<li>Counting seconds does not work. Tap as soon as the bar shoots up.</li>
+<li>After the signal the price does not freeze. It keeps moving until the crash.</li>
+<li>The signal never comes right after you buy. It comes after the price has risen at normal speed for about 1 to 1.4 seconds.</li>
+<li>Since v3.6.0, a plain 📉 bad-news line also appears with the signal in normal rounds, such as ‘Profit-taking sales are piling up’. This news does not push the price down.</li>
+<li>The tutorial and boss fights have no volume signal. The Daily Challenge has the volume signal but no news line with it.</li>
+</ul>
+<p>If you sell on the signal, the result card shows ‘📊 Sold on the volume signal’. If you get caught, the card tells you the price at the moment the signal showed. Remember that price for the next round.</p>
+
+<h2>Shakeouts: spotting fake bad news</h2>
+<p>Sometimes 📉 bad news comes out and the price drops at once. That is a shakeout: a fake drop meant to scare small traders into selling. The price can rise again afterwards.</p>
+<div class="tw"><table>
+<tr><th></th><th>Real crash signal</th><th>Shakeout (fake)</th></tr>
+<tr><td>Price</td><td>Still rising</td><td>Drops at once with the news</td></tr>
+<tr><td>News</td><td>One plain bad-news line</td><td>Bad news</td></tr>
+<tr><td>Volume</td><td>One bar suddenly shoots up</td><td>No bar shoots up</td></tr>
+<tr><td>What to do</td><td>Sell now</td><td>You can hold</td></tr>
+</table></div>
+<ul>
+<li>Fake bad news never comes right before the real signal. The two do not overlap.</li>
+<li>At 10x leverage or more, though, wiggles or a shakeout alone can reach your liquidation line. With leverage the chart shows a liquidation line, so watch it too.</li>
+<li>If the result card says ‘That bad news was just a shakeout.’, the price went much higher after you sold.</li>
+<li>If you sell on bad news and the price then goes 2 times higher, you get the ‘🎣 Shaken Out’ achievement.</li>
+</ul>
+
+<h2>The tutorial</h2>
+<p>When you first open the game, you can tap ‘Just play’ or take the 5-question investor type quiz. The quiz is optional. There are four results, each with a small bonus.</p>
+<ul>
+<li>🦁 Lionheart · Take-profit gains +5%</li>
+<li>🐿️ Scalper Squirrel · Take-profit XP +20%</li>
+<li>🦊 Savvy Fox · Crash signal 0.12s earlier</li>
+<li>🐢 Steady Turtle · Crash loss −20%</li>
+</ul>
+<p>If you skip the quiz, you start as Scalper Squirrel. The animal of your type becomes your first partner. You can retake the quiz in Settings.</p>
+<p>In the tutorial round the chart moves slowly and speech bubbles guide you. When the price passes the yellow +30% line, it tells you that tapping now locks in your profit, and when it rises further it tells you to sell now. If you hold too long, it shows you what a crash looks like. It is practice, so your money stays the same and you can try again right away.</p>
+<p>Finishing the tutorial the first time gives a $500 bonus. You can replay it any time with ‘🎓 Replay Tutorial’ in Settings, but the bonus is paid only once. Within your first 20 rounds after the tutorial, a short button guide may walk you through the tabs one by one.</p>
+
+<h2>Your first 10 rounds</h2>
+<p>You start with $1,000. At Lv.1 your per-round Trade limit is also $1,000, and it grows by 22% with every level.</p>
+<div class="tw"><table>
+<tr><th>Rounds</th><th>Try this</th><th>Good to know</th></tr>
+<tr><td class="n">1–2</td><td>Buy at 25% of limit and sell near the yellow +30% line</td><td>Early protection: in your first 5 rounds, no crash comes before +20%</td></tr>
+<tr><td class="n">3–5</td><td>Don’t sell early; wait and sell the moment a volume bar shoots up</td><td>The market mood is always Normal Market for the first 5 rounds</td></tr>
+<tr><td class="n">6–9</td><td>When bad news shows, look at the price and volume before deciding to hold</td><td>The protection fades. From here the market mood changes every 5 rounds</td></tr>
+<tr><td class="n">10</td><td>Your first boss fight. Read its rule and tap ⚔️ while the real attack meter fills</td><td>No money is used in boss fights</td></tr>
+</table></div>
+<ul>
+<li>Set % of limit to 25% so one crash still leaves cash to try again.</li>
+<li>Small, steady take-profits build up your streak bonus.</li>
+<li>A take profit gives roughly 8–48 XP and getting caught gives 3 XP. Higher return, higher peak accuracy and Fever all mean more XP.</li>
+<li>At 150 XP your rank becomes ‘Rookie’, which opens 🛡️ Stop-Loss Shield, 🧬 Biotech and ⚡ 2x leverage.</li>
+<li>Your partner’s bond grows by 1 every round and by 1 more for a take profit. At 50 bond it grows from Baby to Adult.</li>
+<li>Check the 🎁 Daily Gift at the top and the daily missions on the Missions tab now and then. Daily missions change at midnight.</li>
+</ul>
+
+<h2>Common mistakes</h2>
+<ul>
+<li><b>Selling in a panic on a shakeout</b> · If the price fell at once with the news, it is likely fake. Check the volume bars first.</li>
+<li><b>Seeing the signal but tapping late</b> · The crash comes less than a second after the signal. Tap as soon as the bar shoots up.</li>
+<li><b>Using leverage or Max Buy from the start</b> · Losses grow as much as gains do. You level up just the same at 1x.</li>
+<li><b>Buying into a chart that is already up</b> · If the chart is 5% above the base price before you buy, the crash comes a bit sooner (FOMO buy). If it is 4% below, the crash comes a bit later (dip buy).</li>
+</ul>
+
+<footer>
+<ul><li><a href="./">Guide home</a></li><li><a href="play.html">Getting started</a></li><li><a href="rules.html">Rules in detail</a></li><li><a href="grow.html">Growth</a></li><li><a href="words.html">Glossary</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../about.html">About</a></li></ul>
+<p class="meta">All money in the game is virtual. Nothing here is investment advice.</p>
+<p class="meta">Peakopia · Operated by melange lab · as of v3.6.0</p>
+</footer>
+</main>
+</body>
+</html>
