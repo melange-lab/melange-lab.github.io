@@ -7,7 +7,10 @@
       "namespace": "android_app",
       "package_name": "io.github.melangelab.ddeoksang",
       "sha256_cert_fingerprints": [
-        "4F:B0:44:32:A5:2E:6C:E4:E0:29:74:F3:BB:F2:B3:6C:39:5F:7D:1F:EA:07:A0:5F:DE:38:93:49:F4:1C:7D:45"
+        "4F:B0:44:32:A5:2E:6C:E4:E0:29:74:F3:BB:F2:B3:6C:39:5F:7D:1F:EA:07:A0:5F:DE:38:93:49:F4:1C:7D:45",
+        "69:B5:72:77:97:98:FB:5A:57:88:E7:3E:96:2F:D5:41:C2:74:71:08:62:83:BA:90:7A:2D:18:E2:48:14:FC:90",
+        "3B:9D:76:8A:5D:BF:59:7E:79:BB:E9:98:1A:C9:AB:05:E8:68:8B:23:A3:07:4F:29:D5:E3:A2:4D:61:3F:2D:CB",
+        "DF:1E:BD:CC:65:5D:86:CA:62:7D:A4:FA:07:07:A2:5F:16:D7:7A:ED:B3:30:50:DA:F8:86:3C:BB:42:F9:3A:99"
       ]
     }
   }
