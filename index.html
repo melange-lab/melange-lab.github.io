@@ -3748,7 +3748,7 @@ if(ON_PC){CFG.adClient='';CFG.donateUrl='';CFG.iap=false;}
 const GI=$('gintro'),GI_OFF=ON_PC||onCG;if(GI_OFF)document.documentElement.classList.add('nogi');
 function giSync(){if(!GI||GI_OFF)return;const sp=ttl&&!card.hidden&&card.querySelector('.ttsp');if(sp){if(GI.parentNode!==card){card.insertBefore(GI,sp);bdSync();}}else if(GI.parentNode===card||!GI.parentNode)$('buddy').after(GI);}
 new MutationObserver(giSync).observe(card,{childList:true,attributes:true,attributeFilter:['hidden','class']});
-const BUILD='v3.6.3 · b261125b · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
+const BUILD='v3.6.4 · b261125c · '+LANG+'-'+(ON_PC?'pc':onCG?'cg':/(^|\.)itch\.(io|zone)$|hwcdn\.net$/.test(location.hostname)||/itch\.io/.test(document.referrer)?'itch':'web');
 if(onCG){const sc=document.createElement('script');sc.src='https://sdk.crazygames.com/crazygames-sdk-v3.js';
   sc.onload=async()=>{try{const S=window.CrazyGames.SDK;await S.init();if(S.environment!=='disabled'){CG.S=S;CG.on=true;cgLoad();try{const ms=v=>{v=v&&typeof v==='object'?v:S.game.settings;cgMute=!!(v&&v.muteAudio);document.body.classList.toggle('noChat',!!(v&&v.disableChat));if(touched||cgMute)bgm.sync();};ms();S.game.addSettingsChangeListener(ms);}catch(e){}if(state==='holding'||state==='ghost')cgPlay(true);}}catch(e){}CG.done=1;};sc.onerror=()=>{CG.done=1;};document.head.appendChild(sc);}
 let cgG=false;
@@ -3972,7 +3972,7 @@ function pcMenu(){if(state==='holding'||state==='ghost'||tabNow())return;openMod
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!adPause){if(!$('sheet').hidden)$('sheet').hidden=true;else if(!$('modal').hidden)$('modalClose').click();else if(ON_PC)pcMenu();return;}
   if(!(e.code==='Space'||(e.key==='Enter'&&e.target===btn))||e.repeat)return;if(adPause&&(state==='holding'||state==='ghost')){e.preventDefault();return;}if(state!=='holding'){const tg=e.target;if(curTab!=='trade'||!$('modal').hidden||!$('sheet').hidden||(tg&&tg.closest&&(tg.closest('input,textarea,select,summary,[role=switch],#card:not([hidden]) button')||(kbNav&&tg!==btn&&tg.closest('button,[role=button]')))))return;}e.preventDefault();const n=performance.now();if(n-tapAt<300)return;if(tutTapNo())return;tapAt=n;if(state==='holding')release();else if(state==='ghost')reenter();else start();});
 btn.addEventListener('contextmenu',e=>e.preventDefault());
-const APP_MODE=(()=>{try{return !onCG&&(/^android-app:/.test(document.referrer)||matchMedia('(display-mode: standalone)').matches);}catch(e){return false;}})();
+const APP_MODE=(()=>{try{return !onCG&&(/^android-app:/.test(document.referrer)||matchMedia('(display-mode: standalone)').matches||/ PeakopiaApp\//.test(navigator.userAgent));}catch(e){return false;}})();
 if(APP_MODE){let bkSelf=0;const bkOpen=()=>!$('sheet').hidden||!$('modal').hidden||curTab!=='trade',bkG=()=>!!(history.state&&history.state.shgB);
   try{if(bkG())history.replaceState(null,'');}catch(e){}
   const bkSync=()=>{if(bkSelf)return;const o=bkOpen(),g=bkG();try{if(o&&!g)history.pushState({shgB:1},'');else if(!o&&g){bkSelf=1;history.back();}}catch(e){bkSelf=0;}};
